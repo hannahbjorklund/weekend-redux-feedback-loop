@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 /**
@@ -9,6 +10,11 @@ import axios from 'axios';
  */
 export default function Review(){
     return (
-        <h1>Review Your Feedback</h1>
+        <>
+            <h1>Review Your Feedback</h1>
+            <Link to ='/success'>
+                <button className='submit'>SUBMIT</button>
+            </Link>
+        </>
     )
 }

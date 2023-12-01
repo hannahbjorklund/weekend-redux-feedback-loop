@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 /**
  * Display a success message after submission and allow
@@ -8,6 +9,11 @@ import { useDispatch } from 'react-redux';
  */
 export default function Success(){
     return(
-        <h1>Thank You!</h1>
+        <>
+            <h1>Thank You!</h1>
+            <Link to ='/'>
+                <button className='restart'>Leave New Feedback</button>
+            </Link>
+        </>
     )
 }
