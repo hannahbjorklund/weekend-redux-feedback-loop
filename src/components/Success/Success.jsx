@@ -11,9 +11,11 @@ export default function Success(){
     return(
         <>
             <h1>Thank You!</h1>
-            <Link to ='/'>
-                <button className='restart'>Leave New Feedback</button>
-            </Link>
+            <div className='container'>
+                <Link to ='/'>
+                    <button className='restart'>Leave New Feedback</button>
+                </Link>
+            </div>
         </>
     )
 }
