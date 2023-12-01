@@ -20,7 +20,6 @@ function App() {
         <h4>Don't forget it!</h4>
       </header>
       <Router>
-        
         <Route exact path='/'>
           <Feeling/>
         </Route>
@@ -39,7 +38,6 @@ function App() {
         <Route exact path='/success'>
           <Success/>
         </Route>
-
       </Router>
     </div>
   );
