@@ -35,7 +35,7 @@ export default function Review(){
                 <p>Support: {feedback.support}</p>
                 <p>Comments: {feedback.comments}</p>
             </div>
-            <button onClick={submitFeedback}>SUBMIT</button>
+            <button data-testid='next' onClick={submitFeedback}>SUBMIT</button>
         </>
     )
 }

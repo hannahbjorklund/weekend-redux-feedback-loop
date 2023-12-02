@@ -23,7 +23,7 @@ export default function Success(){
         <>
             <h1>Thank You!</h1>
             <div className='container'>
-                <button className = 'reset' onClick={resetFeedback}>Leave New Feedback</button>
+                <button data-testid='next' className = 'reset' onClick={resetFeedback}>Leave New Feedback</button>
             </div>
         </>
     )
