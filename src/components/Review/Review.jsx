@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 /**
@@ -9,12 +9,33 @@ import axios from 'axios';
  * and send in a POST request
  */
 export default function Review(){
+
+    const feedback = useSelector(store => store.feedback);
+    const history = useHistory();
+
+    const submitFeedback = () => {
+        axios({
+            method: 'POST',
+            url: '/feedback',
+            data: feedback
+        }).then((response) => {
+            console.log("POST request at /feedback");
+            history.push('/success');
+        }).catch((error) => {
+            console.log("Error in PUT:", error);
+        })
+    }
+
     return (
         <>
             <h1>Review Your Feedback</h1>
-            <Link to ='/success'>
-                <button className='submit'>SUBMIT</button>
-            </Link>
+            <div>
+                <p>Feelings: {feedback.feeling}</p>
+                <p>Understanding: {feedback.understanding}</p>
+                <p>Support: {feedback.support}</p>
+                <p>Comments: {feedback.comments}</p>
+            </div>
+            <button onClick={submitFeedback}>SUBMIT</button>
         </>
     )
 }

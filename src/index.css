@@ -15,3 +15,7 @@ input{
   flex-flow: row;
   justify-content: center;
 }
+
+p{
+  display: block;
+}

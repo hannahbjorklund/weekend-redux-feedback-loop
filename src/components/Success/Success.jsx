@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 /**
  * Display a success message after submission and allow
@@ -8,13 +8,22 @@ import { Link } from 'react-router-dom';
  * current submission and redirects to first page
  */
 export default function Success(){
+
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const resetFeedback = () => {
+        dispatch({
+            type: 'CLEAR_FEEDBACK'
+        })
+        history.push('/');
+    }
+
     return(
         <>
             <h1>Thank You!</h1>
             <div className='container'>
-                <Link to ='/'>
-                    <button className='restart'>Leave New Feedback</button>
-                </Link>
+                <button className = 'reset' onClick={resetFeedback}>Leave New Feedback</button>
             </div>
         </>
     )

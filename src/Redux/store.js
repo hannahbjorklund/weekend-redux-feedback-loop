@@ -13,7 +13,9 @@ const feedback = (state = {}, action) => {
         return {...state, support}
     } else if (action.type === 'SET_COMMENTS'){
         const comments = action.payload;
-        return {...state, comments}
+        return {...state, comments: comments}
+    } else if (action.type === 'CLEAR_FEEDBACK'){
+        return {};
     }
   return state;
 }
