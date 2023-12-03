@@ -5,7 +5,7 @@ const pool = require('../modules/pool')
 // TODO: This route adds a new feedback entry
 router.post('/', (req, res) => {
     const feedback = req.body;
-    console.log("Got feedback:", feedback);
+    console.log("POST feedback:", feedback);
     const sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
                         VALUES ($1, $2, $3, $4);`;
     
