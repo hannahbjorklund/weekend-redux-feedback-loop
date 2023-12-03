@@ -14,15 +14,11 @@ export default function Comments(){
     const handleSubmit = (evt) => {
         evt.preventDefault();
         console.log(commentsInput);
-        if(!commentsInput){
-            alert("You need to enter a value.");
-        } else {
-            dispatch({
-                type: 'SET_COMMENTS',
-                payload: commentsInput
-            })
-            history.push('/review');
-        }
+        dispatch({
+            type: 'SET_COMMENTS',
+            payload: commentsInput
+        })
+        history.push('/review');
     }
     return (
         <>
