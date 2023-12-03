@@ -34,4 +34,18 @@ router.get('/', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res) => {
+    const sqlText = `DELETE from "feedback"
+                        WHERE "id" = $1;`;
+        
+    const sqlValues = [req.params.id];
+    pool.query(sqlText, sqlValues)
+    .then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log("Error in DELETE:", error);
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;

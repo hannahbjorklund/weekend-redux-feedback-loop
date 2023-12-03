@@ -22,7 +22,17 @@ export default function Admin(){
         })
     }
 
-
+    const deleteItem = (item) => {
+        axios({
+            method: 'DELETE',
+            url: `/feedback/${item.id}`
+        }).then((response) => {
+            console.log("DELETE request succesful");
+            getFeedback();
+        }).catch((error) => {
+            console.log("Error in DELETE:", error);
+        })
+    }
 
     return (
         <>
@@ -65,7 +75,7 @@ export default function Admin(){
                                     {item.comments}
                                 </td>
                                 <td>
-                                    <button>🗑️</button>
+                                    <button onClick={()=>{deleteItem(item)}}>🗑️</button>
                                 </td>
                             </tr>
                         ) 
