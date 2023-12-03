@@ -14,11 +14,15 @@ export default function Feeling(){
     const handleSubmit = (evt) => {
         evt.preventDefault();
         console.log(feelingInput);
-        dispatch({
-            type: 'SET_FEELING',
-            payload: feelingInput
-        })
-        history.push('/understanding');
+        if(!feelingInput){
+            alert("You need to enter a value.");
+        } else {
+            dispatch({
+                type: 'SET_FEELING',
+                payload: feelingInput
+            })
+            history.push('/understanding');
+        }
     }
 
     return (

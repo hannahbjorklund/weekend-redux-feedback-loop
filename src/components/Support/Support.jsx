@@ -14,11 +14,15 @@ export default function Support(){
     const handleSubmit = (evt) => {
         evt.preventDefault();
         console.log(supportInput);
-        dispatch({
-            type: 'SET_SUPPORT',
-            payload: supportInput
-        })
-        history.push('/comments');
+        if(!supportInput){
+            alert("You need to enter a value.");
+        } else {
+            dispatch({
+                type: 'SET_SUPPORT',
+                payload: supportInput
+            })
+            history.push('/comments');
+        }
     }
     
     return (

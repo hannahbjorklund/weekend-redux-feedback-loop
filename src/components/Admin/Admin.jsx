@@ -23,15 +23,21 @@ export default function Admin(){
     }
 
     const deleteItem = (item) => {
-        axios({
-            method: 'DELETE',
-            url: `/feedback/${item.id}`
-        }).then((response) => {
-            console.log("DELETE request succesful");
-            getFeedback();
-        }).catch((error) => {
-            console.log("Error in DELETE:", error);
-        })
+        if(confirm("Are you sure you want to delete?")){
+            axios({
+                method: 'DELETE',
+                url: `/feedback/${item.id}`
+            }).then((response) => {
+                console.log("DELETE request succesful");
+                getFeedback();
+            }).catch((error) => {
+                console.log("Error in DELETE:", error);
+            })
+        }
+    }
+
+    const flagItem = (item) => {
+        
     }
 
     return (

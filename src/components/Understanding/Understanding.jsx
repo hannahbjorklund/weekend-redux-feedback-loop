@@ -14,11 +14,15 @@ export default function Understanding(){
     const handleSubmit = (evt) => {
         evt.preventDefault();
         console.log(understandingInput);
-        dispatch({
-            type: 'SET_UNDERSTANDING',
-            payload: understandingInput
-        })
-        history.push('/support');
+        if(!understandingInput){
+            alert("You need to enter a value.");
+        } else {
+            dispatch({
+                type: 'SET_UNDERSTANDING',
+                payload: understandingInput
+            })
+            history.push('/support');
+        }
     }
 
     return(
